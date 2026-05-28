@@ -31,7 +31,8 @@ jobs:
         run: node scripts/validate.mjs
 
       - name: Ruby syntax
-        run: ruby -e 'Dir["{app,lib}/**/*.rb"].each { |file| system("ruby", "-c", file, exception: true) }'
+        run: |
+          ruby -e 'Dir["{app,lib}/**/*.rb"].each { |file| system("ruby", "-c", file, exception: true) }'
 
       - name: Build gem
         run: gem build makepay-rails.gemspec
